@@ -21,7 +21,7 @@ export default function Navigations() {
                 <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-2">
                         <Avatar className="h-8 w-8">
-                            <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Farhan Afandi" />
+                            <AvatarImage src="/myAvatar.svg" alt="Farhan Afandi" />
                             <AvatarFallback>FA</AvatarFallback>
                         </Avatar>
                         <span className="text-xl font-bold">Farhan Afandi</span>

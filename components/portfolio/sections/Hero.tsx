@@ -23,7 +23,7 @@ export default function Hero() {
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
                 <Avatar className="h-32 w-32 mx-auto mb-8 border-4 border-primary/20">
-                  <AvatarImage src="/placeholder.svg?height=128&width=128" alt="Farhan Afandi" />
+                  <AvatarImage src="/myAvatar.svg" alt="Farhan Afandi" />
                   <AvatarFallback className="text-2xl">FA</AvatarFallback>
                 </Avatar>
               </motion.div>
