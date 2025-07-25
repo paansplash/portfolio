@@ -1,3 +1,4 @@
+import Navigations from "@/components/portfolio/components/Navigations"
 import Hero from "@/components/portfolio/sections/Hero"
 import About from "@/components/portfolio/sections/About"
 import Skills from "@/components/portfolio/sections/Skills"
@@ -10,6 +11,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
 
+      <Navigations />
+      
       <Hero />
 
       <Separator />
@@ -31,7 +34,7 @@ export default function Home() {
       <Separator />
 
       <Footer />
-      
+
     </div>
   )
 }
