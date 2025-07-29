@@ -5,7 +5,9 @@ import useSWR from 'swr';
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export default function News() {
-  const { data, error, isLoading } = useSWR('/api/news', fetcher);
+  const { data, error, isLoading } = useSWR('/api/news', fetcher, {
+    fallbackData: [],
+  });
 
   if (error) return <div>⚠️ Failed to load news</div>;
   if (isLoading) return <div>⏳ Loading...</div>;
