@@ -3,128 +3,86 @@
 import {
     NavigationMenu,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Menu } from "lucide-react"
+import {
+    Home,
+    Info,
+    Brain,
+    ClipboardCheck,
+    Book,
+    GraduationCap,
+    FolderGit2,
+    Mail,
+} from "lucide-react"
 import Link from "next/link"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { ModeToggle } from "@/components/ui/mode-toggle"
 
 export default function Navigations() {
+    const navLinkStyle =
+        "inline-flex items-center justify-center whitespace-nowrap font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground hover:shadow-md hover:-translate-y-1 text-xs rounded-full text-white px-0 w-8 h-8 xs:w-11 xs:h-11"
+
     return (
-
-        <nav className="sticky top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b z-50">
-            <div className="container mx-auto px-4 py-4">
-                <div className="flex justify-between items-center">
-                    <div className="flex items-center space-x-2">
-                        <Avatar className="h-8 w-8">
-                            <AvatarImage src="/myAvatar.svg" alt="Farhan Afandi" />
-                            <AvatarFallback>FA</AvatarFallback>
-                        </Avatar>
-                        <span className="text-xl font-bold">Farhan Afandi</span>
-                    </div>
-
-                    {/* Desktop Navigation */}
-                    <NavigationMenu className="hidden md:flex">
-                        <NavigationMenuList>
+        <nav className="w-screen flex justify-center fixed bottom-8 z-30">
+            <div className="bg-white/10 bg-opacity-30 py-3 px-7 flex gap-3 rounded-full backdrop-blur-lg">
+                <NavigationMenu>
+                    <NavigationMenuList className="flex items-center gap-1 sm:gap-3 md:gap-5">
                         <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="/"
-                                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                    >
-                                        Home
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="#about"
-                                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                    >
-                                        About
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="#skills"
-                                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                    >
-                                        Skills
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="#projects"
-                                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                    >
-                                        Projects
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="#contact"
-                                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                    >
-                                        Contact
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <NavigationMenuLink asChild>
-                                    <Link
-                                        href="/news"
-                                        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-                                    >
-                                        News
-                                    </Link>
-                                </NavigationMenuLink>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <ModeToggle />
-                            </NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu>
-
-                    {/* Mobile Navigation */}
-                    <Sheet>
-                        <SheetTrigger asChild className="md:hidden">
-                            <Button variant="ghost" size="icon">
-                                <Menu className="h-5 w-5" />
-                                <span className="sr-only">Toggle menu</span>
-                            </Button>
-                        </SheetTrigger>
-                        <SheetContent side="right">
-                            <nav className="flex flex-col space-y-4">
-                                <Link href="#about" className="text-lg font-medium hover:text-primary transition-colors">
-                                    About
-                                </Link>
-                                <Link href="#skills" className="text-lg font-medium hover:text-primary transition-colors">
-                                    Skills
-                                </Link>
-                                <Link href="#projects" className="text-lg font-medium hover:text-primary transition-colors">
-                                    Projects
-                                </Link>
-                                <Link href="#contact" className="text-lg font-medium hover:text-primary transition-colors">
-                                    Contact
-                                </Link>
-                                <Link href="/news" className="text-lg font-medium hover:text-primary transition-colors">
-                                    News
-                                </Link>
-                            </nav>
-                        </SheetContent>
-                    </Sheet>
-                </div>
+                            <Link href="#home" className={navLinkStyle} aria-label="Home" title="Home">
+                                <Home className="w-5 h-5" />
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link href="#about" className={navLinkStyle} aria-label="About" title="About">
+                                <Info className="w-5 h-5" />
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link href="#experience" className={navLinkStyle} aria-label="Experience" title="Experience">
+                                <Book className="w-5 h-5" />
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link
+                                href="#expertise"
+                                className={`${navLinkStyle} hidden md:flex`}
+                                aria-label="Expertise"
+                                title="Expertise"
+                            >
+                                <ClipboardCheck className="w-5 h-5" />
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link
+                                href="#qualification"
+                                className={navLinkStyle}
+                                aria-label="Qualification"
+                                title="Qualification"
+                            >
+                                <GraduationCap className="w-6 h-6" />
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link
+                                href="#portfolio"
+                                className={navLinkStyle}
+                                aria-label="Portfolio"
+                                title="Portfolio"
+                            >
+                                <FolderGit2 className="w-5 h-5" />
+                            </Link>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link
+                                href="#contact"
+                                className={`${navLinkStyle} bg-primary-foreground text-primary`}
+                                aria-label="Contact"
+                                title="Contact"
+                            >
+                                <Mail className="w-5 h-5" />
+                            </Link>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
             </div>
         </nav>
     )
