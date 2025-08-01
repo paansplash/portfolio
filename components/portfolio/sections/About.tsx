@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 export default function About() {
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center px-4">
+    <section id="about" className="h-full w-full flex items-center justify-center px-4">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4">About Me</h2>

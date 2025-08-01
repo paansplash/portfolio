@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export default function Contact() {
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center px-4">
+    <section id="contact" className="h-full w-full flex items-center justify-center px-4">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

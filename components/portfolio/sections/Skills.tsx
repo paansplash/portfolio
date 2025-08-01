@@ -7,7 +7,7 @@ import { Code, Palette, Globe } from "lucide-react"
 
 export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center px-4">
+    <section id="skills" className="h-full w-full flex items-center justify-center px-4">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
