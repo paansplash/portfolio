@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Hero() {
   return (
-    <section id="home" className="h-full w-full flex items-center justify-center px-4">
+    <section id="home" className="h-full w-full flex items-center justify-center px-4 panel">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

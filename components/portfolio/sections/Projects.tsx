@@ -9,7 +9,7 @@ import Link from "next/link"
 
 export default function Projects() {
   return (
-    <section id="projects" className="h-full w-full flex items-center justify-center px-4">
+    <section id="projects" className="min-h-screen flex items-center justify-center px-4">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
