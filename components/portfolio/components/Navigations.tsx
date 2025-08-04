@@ -1,108 +1,88 @@
-"use client"
+"use client";
 
-import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuList,
-} from "@/components/ui/navigation-menu"
-import {
-    Home,
-    Info,
-    ClipboardCheck,
-    Book,
-    Mail,
-    GraduationCap,
-} from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-interface NavigationsProps {
-    activeIndex: number
-    goToSection: (index: number) => void
+interface Section {
+  id: string;
+  label: string;
+  icon: React.ElementType;
 }
 
-const navLinkStyle =
-    "inline-flex items-center justify-center whitespace-nowrap font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground hover:shadow-md hover:-translate-y-1 text-xs rounded-full text-white px-0 w-8 h-8 xs:w-11 xs:h-11"
+interface NavigationsProps {
+  sections: Section[];
+  activeIndex: number;
+  goToSection: (index: number) => void;
+}
 
-export default function Navigations({ activeIndex, goToSection }: NavigationsProps) {
-    return (
-        <>
-            {/* Progress bar */}
-            {/* <div className="fixed top-0 left-0 w-full z-40">
-                <div
-                    className="h-1 bg-primary transition-all duration-300"
-                    style={{ width: `${((activeIndex + 1) / 6) * 100}%` }}
-                />
-            </div> */}
+export default function Navigations({
+  sections,
+  activeIndex,
+  goToSection,
+}: NavigationsProps) {
+  const handlePrev = () => {
+    if (activeIndex > 0) {
+      goToSection(activeIndex - 1);
+    }
+  };
 
-            {/* Navigation bar */}
-            <nav className="w-screen flex justify-center fixed bottom-8 z-30">
-                <div className="bg-white/10 bg-opacity-30 py-3 px-7 flex gap-3 rounded-full backdrop-blur-lg">
-                    <NavigationMenu>
-                        <NavigationMenuList className="flex items-center gap-1 sm:gap-3 md:gap-5">
-                            <NavigationMenuItem>
-                                <button
-                                    onClick={() => goToSection(0)}
-                                    className={navLinkStyle}
-                                    aria-label="Home"
-                                    title="Home"
-                                >
-                                    <Home className="w-5 h-5" />
-                                </button>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <button
-                                    onClick={() => goToSection(1)}
-                                    className={navLinkStyle}
-                                    aria-label="About"
-                                    title="About"
-                                >
-                                    <Info className="w-5 h-5" />
-                                </button>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <button
-                                    onClick={() => goToSection(2)}
-                                    className={navLinkStyle}
-                                    aria-label="Skills"
-                                    title="Skills"
-                                >
-                                    <GraduationCap className="w-5 h-5" />
-                                </button>
-                            </NavigationMenuItem>
+  const handleNext = () => {
+    if (activeIndex < sections.length - 1) {
+      goToSection(activeIndex + 1);
+    }
+  };
 
-                            {/* <NavigationMenuItem>
-                                <button
-                                    onClick={() => goToSection(3)}
-                                    className={navLinkStyle}
-                                    aria-label="Skills"
-                                    title="Skills"
-                                >
-                                    <Book className="w-5 h-5" />
-                                </button>
-                            </NavigationMenuItem> */}
-                            <NavigationMenuItem className="hidden md:flex">
-                                <button
-                                    onClick={() => goToSection(3)}
-                                    className={navLinkStyle}
-                                    aria-label="Projects"
-                                    title="Projects"
-                                >
-                                    <ClipboardCheck className="w-5 h-5" />
-                                </button>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem>
-                                <button
-                                    onClick={() => goToSection(4)}
-                                    className={`${navLinkStyle} bg-primary-foreground text-primary`}
-                                    aria-label="Contact"
-                                    title="Contact"
-                                >
-                                    <Mail className="w-5 h-5" />
-                                </button>
-                            </NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu>
-                </div>
-            </nav>
-        </>
-    )
+  return (
+    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 bg-background/90 backdrop-blur-sm border rounded-full px-6 py-3 shadow-lg z-50">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={handlePrev}
+        disabled={activeIndex === 0}
+        className="h-8 w-8"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </Button>
+
+      <div className="flex items-center space-x-1">
+        {sections.map((section, index) => {
+          const IconComponent = section.icon;
+          const isActive = activeIndex === index;
+          return (
+            <button
+              key={section.id}
+              onClick={() => goToSection(index)}
+              className={`group relative flex items-center justify-center rounded-full p-3 transition-all duration-300 hover:bg-primary/10 ${
+                isActive
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              title={section.label}
+            >
+              <IconComponent
+                className={`transition-all duration-300 ${
+                  isActive
+                    ? "h-6 w-6 scale-110"
+                    : "h-5 w-5 group-hover:scale-105"
+                }`}
+              />
+              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-foreground text-background text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                {section.label}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={handleNext}
+        disabled={activeIndex === sections.length - 1}
+        className="h-8 w-8"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+    </div>
+  );
 }
