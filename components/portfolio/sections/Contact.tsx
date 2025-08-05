@@ -31,7 +31,7 @@ export default function Contact() {
                   </div>
                   <h3 className="font-semibold mb-2">Email</h3>
                   <Button variant="link" asChild className="p-0 h-auto">
-                    <Link href="mailto:alex@example.com">alex@example.com</Link>
+                    <Link href="mailto:farhanafandi.ar@gmail.com">farhanafandi.ar@gmail.com</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -43,7 +43,7 @@ export default function Contact() {
                   </div>
                   <h3 className="font-semibold mb-2">LinkedIn</h3>
                   <Button variant="link" asChild className="p-0 h-auto">
-                    <Link href="https://linkedin.com/in/alexjohnson">
+                    <Link href="https://linkedin.com/in/frhnfnd">
                       Connect with me
                     </Link>
                   </Button>
@@ -67,7 +67,7 @@ export default function Contact() {
 
             <Button size="lg" asChild>
               <Link
-                href="mailto:alex@example.com"
+                href="mailto:farhanafandi.ar@gmail.com"
                 className="flex items-center gap-2"
               >
                 <Mail className="h-5 w-5" />

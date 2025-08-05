@@ -21,19 +21,16 @@ export default function About() {
             <CardContent className="p-8">
               <div className="space-y-6">
                 <p className="leading-7 text-lg">
-                  With over 5 years of experience in web development, I
-                  specialize in creating scalable, user-friendly applications
-                  that solve real-world problems.
+                  I’m a Software Engineering graduate and versatile web developer with full-stack experience,
+                  focused on building scalable, user-centered applications that deliver real business value.
                 </p>
                 <p className="leading-7 text-lg">
-                  I'm passionate about staying up-to-date with the latest
-                  technologies and best practices in web development. When I'm
-                  not coding, you can find me contributing to open-source
-                  projects.
+                  I lead end-to-end development efforts — from gathering requirements and writing proposals
+                  to client communication and technical implementation — with strong attention to project goals.
                 </p>
                 <p className="leading-7 text-lg">
-                  I believe in writing clean, maintainable code and creating
-                  exceptional user experiences that make a difference.
+                  I take pride in writing clean, maintainable code and crafting intuitive digital experiences
+                  that blend usability, performance, and thoughtful design.
                 </p>
               </div>
             </CardContent>

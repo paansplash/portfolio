@@ -24,15 +24,13 @@ export default function Hero({ goToSlide }: HeroProps) {
 
             <div className="space-y-4 mb-8">
               <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl">
-                Hi, I'm <span className="text-primary">Alex Johnson</span>
+                <span className="text-primary">Farhan Afandi</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                Full-Stack Web Developer
+                Web Developer
               </p>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-7">
-                I create beautiful, responsive web applications using modern
-                technologies. Passionate about clean code, user experience, and
-                bringing ideas to life.
+                I'm a versatile web developer who builds responsive, user-focused applications. Skilled in both development and project management, with a sharp eye for business needs.
               </p>
             </div>
 

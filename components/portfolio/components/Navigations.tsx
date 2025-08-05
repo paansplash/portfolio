@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -83,6 +84,9 @@ export default function Navigations({
       >
         <ChevronRight className="h-4 w-4" />
       </Button>
+      <div className="ml-2">
+        <ThemeToggle />
+      </div>
     </div>
   );
 }
