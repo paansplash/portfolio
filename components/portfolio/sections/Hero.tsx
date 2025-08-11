@@ -12,7 +12,7 @@ export default function Hero({ goToSlide }: HeroProps) {
   return (
     <div className="min-w-full h-full flex items-center justify-center px-4">
       <div className="container mx-auto max-w-4xl">
-        <Card className="border-0 shadow-none bg-transparent">
+        <Card className="border-1 shadow-sm bg-white/2 backdrop-blur-md p-15">
           <CardContent className="text-center p-0">
             <Avatar className="h-32 w-32 mx-auto mb-8 border-4 border-primary/20">
               <AvatarImage

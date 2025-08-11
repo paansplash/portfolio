@@ -17,7 +17,7 @@ export default function About() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-h-[70vh]">
-          <Card className="h-full bg-white/10 backdrop-blur-md border border-white/20 shadow-md">
+          <Card className="h-full bg-white/2 backdrop-blur-md border border-white/20 shadow-md">
             <CardContent className="p-8">
               <div className="space-y-6">
                 <p className="leading-7 text-lg">
@@ -36,7 +36,7 @@ export default function About() {
             </CardContent>
           </Card>
 
-          <Card className="h-full bg-white/10 backdrop-blur-md border border-white/20 shadow-md">
+          <Card className="h-full bg-white/2 backdrop-blur-md border border-white/20 shadow-md">
             <CardContent className="p-8">
               <div className="space-y-8">
                 <div className="flex items-center space-x-4">
