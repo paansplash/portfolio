@@ -6,15 +6,22 @@ import { Code, Palette, Globe } from "lucide-react"
 
 export default function Skills() {
   return (
-    <div className="min-w-full h-full flex items-center justify-center px-4">
+    <div className="min-w-full h-full flex items-center justify-center px-4 py-12">
       <div className="container mx-auto max-w-6xl">
+        {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4">Skills & Technologies</h2>
-          <p className="text-muted-foreground">The tools and technologies I use to bring ideas to life</p>
+        <h2 className="scroll-m-20 text-2xl sm:text-3xl font-semibold tracking-tight mb-2 sm:mb-4">
+            Skills & Technologies
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            The tools and technologies I use to bring ideas to life
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-h-[70vh]">
-          <Card className="relative overflow-hidden h-full">
+        {/* Grid layout - 1 col mobile, 3 cols desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Frontend */}
+          <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-blue-500/10 rounded-lg">
@@ -40,7 +47,8 @@ export default function Skills() {
             </CardContent>
           </Card>
 
-          <Card className="relative overflow-hidden h-full">
+          {/* Backend */}
+          <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-green-500/10 rounded-lg">
@@ -64,7 +72,8 @@ export default function Skills() {
             </CardContent>
           </Card>
 
-          <Card className="relative overflow-hidden h-full">
+          {/* Tools & DevOps */}
+          <Card>
             <CardHeader>
               <div className="flex items-center space-x-2">
                 <div className="p-2 bg-purple-500/10 rounded-lg">
