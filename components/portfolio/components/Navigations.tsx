@@ -34,7 +34,7 @@ export default function Navigations({
   };
 
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 bg-background/90 backdrop-blur-sm border rounded-full px-6 py-3 shadow-lg z-50">
+    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 bg-white/5 backdrop-blur-sm border rounded-full px-6 py-3 shadow-lg z-50">
       <Button
         variant="ghost"
         size="icon"
