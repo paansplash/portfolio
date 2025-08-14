@@ -61,28 +61,28 @@ export default function Hero({ goToSlide }: HeroProps) {
           animate={{ rotateY: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <Card className="border shadow-sm bg-white/5 backdrop-blur-md p-15">
+          <Card className="border shadow-sm bg-white/5 backdrop-blur-md p-6 sm:p-15">
             <CardContent className="text-center p-0">
               {/* Avatar with rotation */}
               <motion.div
                 initial={{ rotate: -15, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
-                whileHover={{ scale: 1.1 }} // magnify on hover
-                whileTap={{ scale: 0.95 }} // slight shrink when clicked
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.8 }}
               >
-                <Avatar className="h-32 w-32 mx-auto mb-8 border-4 border-primary/20">
+                <Avatar className="h-24 w-24 sm:h-32 sm:w-32 mx-auto mb-6 sm:mb-8 border-4 border-primary/20">
                   <AvatarImage
                     src="/myAvatar.svg?height=128&width=128"
                     alt="Farhan Afandi"
                   />
-                  <AvatarFallback className="text-2xl">FA</AvatarFallback>
+                  <AvatarFallback className="text-xl sm:text-2xl">FA</AvatarFallback>
                 </Avatar>
               </motion.div>
 
               {/* Name */}
               <motion.h1
-                className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl"
+                className="scroll-m-20 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -92,8 +92,8 @@ export default function Hero({ goToSlide }: HeroProps) {
 
               {/* Job Title with rainbow typewriter */}
               <div className="mt-2 flex justify-center">
-                <div className="pl-[0.1rem] tracking-[0.2rem] flex items-center">
-                  <span className="rainbow-text xs:text-base sm:text-lg font-medium">
+                <div className="pl-[0.1rem] tracking-[0.1rem] sm:tracking-[0.2rem] flex items-center">
+                  <span className="rainbow-text text-sm sm:text-lg font-medium">
                     {typedText}
                   </span>
                   <span
@@ -106,22 +106,26 @@ export default function Hero({ goToSlide }: HeroProps) {
               </div>
 
               {/* Description */}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-7 mt-4">
+              <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-6 sm:leading-7 mt-4 px-2 sm:px-0">
                 I'm a versatile web developer who builds responsive,
                 user-focused applications. Skilled in both development and
                 project management, with a sharp eye for business needs.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
                 <motion.div
                   initial={{ x: -50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ scale: 1.1 }} // magnify on hover
-                  whileTap={{ scale: 0.95 }} // slight shrink when clicked
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Button size="lg" onClick={() => goToSlide(3)}>
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto"
+                    onClick={() => goToSlide(3)}
+                  >
                     View My Work
                   </Button>
                 </motion.div>
@@ -129,12 +133,13 @@ export default function Hero({ goToSlide }: HeroProps) {
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  whileHover={{ scale: 1.1 }} // magnify on hover
-                  whileTap={{ scale: 0.95 }} // slight shrink when clicked
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Button
                     variant="outline"
                     size="lg"
+                    className="w-full sm:w-auto"
                     onClick={() => goToSlide(4)}
                   >
                     Get In Touch
