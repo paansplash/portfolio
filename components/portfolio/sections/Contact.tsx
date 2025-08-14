@@ -43,7 +43,7 @@ export default function Contact() {
                   </div>
                   <h3 className="font-semibold mb-2">LinkedIn</h3>
                   <Button variant="link" asChild className="p-0 h-auto">
-                    <Link href="https://linkedin.com/in/frhnfnd">
+                    <Link href="https://linkedin.com/in/frhnfnd" target="_blank">
                       Connect with me
                     </Link>
                   </Button>
@@ -57,7 +57,7 @@ export default function Contact() {
                   </div>
                   <h3 className="font-semibold mb-2">GitHub</h3>
                   <Button variant="link" asChild className="p-0 h-auto">
-                    <Link href="https://github.com/paansplash">
+                    <Link href="https://github.com/paansplash" target="_blank">
                       View my code
                     </Link>
                   </Button>
