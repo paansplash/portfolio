@@ -57,7 +57,7 @@ export default function Contact() {
                   </div>
                   <h3 className="font-semibold mb-2">GitHub</h3>
                   <Button variant="link" asChild className="p-0 h-auto">
-                    <Link href="https://github.com/alexjohnson">
+                    <Link href="https://github.com/paansplash">
                       View my code
                     </Link>
                   </Button>
