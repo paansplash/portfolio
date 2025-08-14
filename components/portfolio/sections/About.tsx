@@ -8,10 +8,10 @@ export default function About() {
     <div className="min-w-full h-full flex items-center justify-center px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4">
+          <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4 sm:text-xl">
             About Me
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground sm:text-m">
             Learn more about my background and what drives me
           </p>
         </div>
