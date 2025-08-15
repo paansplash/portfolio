@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <div className="min-w-full h-full flex items-center justify-center px-4 py-12 sm:py-40 xl:py-60">
+    <div className="min-w-full flex items-center justify-center px-4 py-12 sm:py-40 xl:py-60">
       <div className="container mx-auto max-w-4xl h-full">
         {/* Scrollable on mobile, static on desktop */}
         <div className="pb-20">
