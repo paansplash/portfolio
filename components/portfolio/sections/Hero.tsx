@@ -82,7 +82,7 @@ export default function Hero({ goToSlide }: HeroProps) {
 
               {/* Name */}
               <motion.h1
-                className="scroll-m-20 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight"
+                className="text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}

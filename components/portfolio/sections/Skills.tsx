@@ -12,7 +12,7 @@ import { Code, Palette, Globe } from "lucide-react";
 
 export default function Skills() {
   return (
-<div className="min-w-full h-full flex items-center justify-center px-4 py-17 sm:py-20 xl:py-40">
+<div className="min-w-full h-full flex items-center justify-center px-4 py-17 sm:py-20 lg:py-50 xl:py-70">
       <div className="container mx-auto max-w-6xl h-full">
         <div className="pb-20">
           {/* Heading */}
@@ -26,7 +26,7 @@ export default function Skills() {
           </div>
 
           {/* Grid layout - 1 col mobile, 3 cols desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
             {/* Frontend */}
             <Card>
               <CardHeader>
