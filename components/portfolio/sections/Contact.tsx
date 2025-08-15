@@ -15,7 +15,7 @@ export default function Contact() {
           <Card className="border-0 shadow-none bg-transparent">
             <CardContent className="text-center p-0">
               <div className="mb-12">
-              <h2 className="scroll-m-20 text-2xl sm:text-3xl font-semibold tracking-tight mb-2 sm:mb-4">
+                <h2 className="scroll-m-20 text-2xl sm:text-3xl font-semibold tracking-tight mb-2 sm:mb-4">
                   Let's Work Together
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground">
@@ -27,7 +27,7 @@ export default function Contact() {
 
               <div className="grid sm:grid-cols-3 gap-6 mb-8">
                 <Card className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6 text-center">
+                  <CardContent className="p-0 sm:p-6 text-center">
                     <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-4">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
@@ -41,7 +41,7 @@ export default function Contact() {
                 </Card>
 
                 <Card className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6 text-center">
+                  <CardContent className="p-0 sm:p-6 text-center">
                     <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-4">
                       <Linkedin className="h-6 w-6 text-primary" />
                     </div>
@@ -58,7 +58,7 @@ export default function Contact() {
                 </Card>
 
                 <Card className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-6 text-center">
+                  <CardContent className="p-0 sm:p-6 text-center">
                     <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-4">
                       <Github className="h-6 w-6 text-primary" />
                     </div>
