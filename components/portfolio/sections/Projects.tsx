@@ -164,10 +164,10 @@ export default function Projects() {
                     Code
                   </Link>
                 </Button>
-                <Button size="sm" disabled>
-                  <Link href="#" className="flex items-center gap-1">
+                <Button size="sm">
+                  <Link href="https://payungku.my/user-login" className="flex items-center gap-1" target="_blank">
                     <ExternalLink className="h-3 w-3" />
-                    Demo
+                    View
                   </Link>
                 </Button>
               </div>
