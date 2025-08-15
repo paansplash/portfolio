@@ -14,7 +14,7 @@ export default function Skills() {
   return (
 <div className="min-w-full h-full flex items-center justify-center px-4 py-17 sm:py-20 xl:py-40">
       <div className="container mx-auto max-w-6xl h-full">
-        <div className="h-full pb-20">
+        <div className="pb-20">
           {/* Heading */}
           <div className="text-center mb-12">
             <h2 className="scroll-m-20 text-2xl sm:text-3xl font-semibold tracking-tight mb-2 sm:mb-4">
