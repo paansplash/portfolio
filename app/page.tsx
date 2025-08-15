@@ -1,34 +1,14 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-  Code,
-  Palette,
-  Smartphone,
-  Globe,
-  ChevronLeft,
-  ChevronRight,
   Home,
   User,
   Wrench,
   FolderOpen,
   Phone,
 } from "lucide-react";
-import Link from "next/link";
-import { useState, useEffect } from "react";
+
 import Hero from "@/components/portfolio/sections/Hero";
 import About from "@/components/portfolio/sections/About";
 import Skills from "@/components/portfolio/sections/Skills";
@@ -65,36 +45,52 @@ export default function Portfolio() {
       if (e.key === "ArrowRight") nextSlide();
     };
 
-    // Throttle function to prevent too rapid slide changes
+    // Mouse wheel navigation
     let isScrolling = false;
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-
       if (isScrolling) return;
-
       isScrolling = true;
 
-      // Determine scroll direction
-      if (e.deltaY > 0) {
-        // Scrolling down = next slide
-        nextSlide();
-      } else if (e.deltaY < 0) {
-        // Scrolling up = previous slide
-        prevSlide();
-      }
+      if (e.deltaY > 0) nextSlide();
+      else if (e.deltaY < 0) prevSlide();
 
-      // Reset throttle after animation completes
       setTimeout(() => {
         isScrolling = false;
-      }, 600); // Slightly longer than the CSS transition (500ms)
+      }, 600);
+    };
+
+    // Touch swipe navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 50) { // Minimum swipe distance
+        if (swipeDistance > 0) prevSlide(); // Swipe right
+        else nextSlide(); // Swipe left
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
@@ -132,7 +128,7 @@ export default function Portfolio() {
 
       {/* Keyboard Instructions */}
       <div className="hidden md:fixed md:bottom-4 md:right-4 md:text-xs md:text-muted-foreground md:bg-background/80 md:backdrop-blur-sm md:border md:rounded md:px-2 md:py-1">
-        Use ← → keys or mouse wheel to navigate
+        Use ← → keys, mouse wheel, or swipe to navigate
       </div>
     </div>
   );
