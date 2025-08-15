@@ -12,8 +12,8 @@ import { Code, Palette, Globe } from "lucide-react";
 
 export default function Skills() {
   return (
-<div className="min-w-full h-full flex items-center justify-center px-4 py-17 sm:py-20 lg:py-50 xl:py-70">
-      <div className="container mx-auto max-w-6xl h-full">
+    <div className="min-w-full px-4 py-17 lg:h-screen flex items-start md:items-center md:justify-center overflow-y-auto lg:overflow-visible">
+      <div className="container mx-auto max-w-6xl">
         <div className="pb-20">
           {/* Heading */}
           <div className="text-center mb-12">
@@ -25,8 +25,8 @@ export default function Skills() {
             </p>
           </div>
 
-          {/* Grid layout - 1 col mobile, 3 cols desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+          {/* Grid layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Frontend */}
             <Card>
               <CardHeader>
@@ -111,3 +111,4 @@ export default function Skills() {
     </div>
   );
 }
+

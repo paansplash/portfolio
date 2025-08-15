@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function Projects() {
   return (
-    <div className="min-w-full px-4 py-17 lg:h-full lg:flex lg:items-center lg:justify-center sm:py-20 xl:py-40 overflow-y-auto lg:overflow-visible">
+    <div className="min-w-full px-4 py-17 md:h-full md:flex md:items-center md:justify-center sm:py-20 xl:py-40 overflow-y-auto md:overflow-visible">
       <div className="container mx-auto max-w-6xl h-full">
         <div className="pb-20">
           {/* Header */}
