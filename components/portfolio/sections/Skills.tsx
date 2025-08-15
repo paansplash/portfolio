@@ -6,7 +6,7 @@ import { Code, Palette, Globe } from "lucide-react"
 
 export default function Skills() {
   return (
-    <div className="min-w-full h-full flex items-center justify-center px-4 py-12">
+    <div className="min-w-full h-full flex items-center justify-center px-4 py-20 sm:py-20 xl:py-40">
       <div className="container mx-auto max-w-6xl">
         {/* Heading */}
         <div className="text-center mb-12">

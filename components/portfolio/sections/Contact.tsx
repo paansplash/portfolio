@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <div className="min-w-full h-full flex items-center justify-center px-4">
+    <div className="min-w-full h-full flex items-center justify-center px-4 py-12 sm:py-40 xl:py-60">
       <div className="container mx-auto max-w-4xl h-full">
         {/* Scrollable on mobile, static on desktop */}
         <div className="h-full overflow-y-auto lg:overflow-visible pb-20">
@@ -19,8 +19,7 @@ export default function Contact() {
                   Let's Work Together
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  I'm always interested in new opportunities and exciting
-                  projects. Whether you have a question or just want to say hi,
+                  If you have any enquiries,
                   feel free to reach out!
                 </p>
               </div>
