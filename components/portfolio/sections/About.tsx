@@ -8,7 +8,7 @@ export default function About() {
     <div className="min-w-full h-full flex items-center justify-center px-4 py-17 sm:py-20 xl:py-40">
       <div className="container mx-auto max-w-6xl h-full">
         {/* Scrollable only on mobile */}
-        <div className="h-full overflow-y-auto lg:overflow-visible pb-20">
+        <div className="h-full pb-20">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="scroll-m-20 text-2xl sm:text-3xl font-semibold tracking-tight mb-2 sm:mb-4">
               About Me
