@@ -7,7 +7,8 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <div className="min-w-full px-4 py-11 md:h-screen overflow-y-auto mx-auto max-w-4xl flex flex-col lg:overflow-visible lg:justify-center lg:h-full">
+    <div className="min-w-full px-4 py-11 md:h-screen overflow-y-auto lg:overflow-visible">
+      <div className="container mx-auto max-w-4xl flex flex-col lg:justify-center lg:h-full">
         <Card className="border-0 shadow-none bg-transparent">
           <CardContent className="text-center p-0">
             <div className="mb-12">
@@ -78,5 +79,6 @@ export default function Contact() {
           </CardContent>
         </Card>
       </div>
+    </div>
   );
 }
