@@ -2,7 +2,8 @@
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 interface Section {
   id: string;
@@ -21,72 +22,157 @@ export default function Navigations({
   activeIndex,
   goToSection,
 }: NavigationsProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const handlePrev = () => {
-    if (activeIndex > 0) {
-      goToSection(activeIndex - 1);
-    }
+    if (activeIndex > 0) goToSection(activeIndex - 1);
   };
 
   const handleNext = () => {
-    if (activeIndex < sections.length - 1) {
-      goToSection(activeIndex + 1);
-    }
+    if (activeIndex < sections.length - 1) goToSection(activeIndex + 1);
+  };
+
+  const handleSectionClick = (index: number) => {
+    goToSection(index);
+    setIsOpen(false); // Close menu after selecting a section
   };
 
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 bg-white/5 backdrop-blur-sm border rounded-full px-6 py-3 shadow-lg z-50">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={handlePrev}
-        disabled={activeIndex === 0}
-        className="h-8 w-8"
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </Button>
+    <>
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 items-center space-x-2 bg-background/90 backdrop-blur-sm border rounded-full px-6 py-3 shadow-lg z-50">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={handlePrev}
+          disabled={activeIndex === 0}
+          className="h-8 w-8"
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </Button>
 
-      <div className="flex items-center space-x-1">
-        {sections.map((section, index) => {
-          const IconComponent = section.icon;
-          const isActive = activeIndex === index;
-          return (
-            <button
-              key={section.id}
-              onClick={() => goToSection(index)}
-              className={`group relative flex items-center justify-center rounded-full p-3 transition-all duration-300 hover:bg-primary/10 ${
-                isActive
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-              title={section.label}
-            >
-              <IconComponent
-                className={`transition-all duration-300 ${
+        <div className="flex items-center space-x-1">
+          {sections.map((section, index) => {
+            const IconComponent = section.icon;
+            const isActive = activeIndex === index;
+            return (
+              <button
+                key={section.id}
+                onClick={() => handleSectionClick(index)}
+                className={`group relative flex items-center justify-center rounded-full p-3 transition-all duration-300 hover:bg-primary/10 ${
                   isActive
-                    ? "h-6 w-6 scale-110"
-                    : "h-5 w-5 group-hover:scale-105"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
-              />
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-foreground text-background text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                {section.label}
-              </div>
-            </button>
-          );
-        })}
+                title={section.label}
+              >
+                <IconComponent
+                  className={`transition-all duration-300 ${
+                    isActive
+                      ? "h-6 w-6 scale-110"
+                      : "h-5 w-5 group-hover:scale-105"
+                  }`}
+                />
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-foreground text-background text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                  {section.label}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={handleNext}
+          disabled={activeIndex === sections.length - 1}
+          className="h-8 w-8"
+        >
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+        <div className="ml-2">
+          <ThemeToggle />
+        </div>
       </div>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={handleNext}
-        disabled={activeIndex === sections.length - 1}
-        className="h-8 w-8"
-      >
-        <ChevronRight className="h-4 w-4" />
-      </Button>
-      <div className="ml-2">
-        <ThemeToggle />
+      {/* Mobile: Burger + Floating Dock */}
+      <div className="md:hidden fixed bottom-8 right-4 z-50">
+        {!isOpen ? (
+          // Burger Button
+          <Button
+            variant="default"
+            size="icon"
+            className="h-12 w-12 rounded-full shadow-lg"
+            onClick={() => setIsOpen(true)}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        ) : (
+          // Floating Dock
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-1 bg-background/95 backdrop-blur-sm border rounded-full px-3 py-2 shadow-xl">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handlePrev}
+              disabled={activeIndex === 0}
+              className="h-8 w-8"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+
+            <div className="flex items-center space-x-1">
+              {sections.map((section, index) => {
+                const IconComponent = section.icon;
+                const isActive = activeIndex === index;
+                return (
+                  <button
+                    key={section.id}
+                    onClick={() => handleSectionClick(index)}
+                    className={`group relative flex items-center justify-center rounded-full p-2 transition-all duration-300 hover:bg-primary/10 ${
+                      isActive
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    title={section.label}
+                  >
+                    <IconComponent
+                      className={`transition-all duration-300 ${
+                        isActive
+                          ? "h-5 w-5 scale-110"
+                          : "h-5 w-5 group-hover:scale-105"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleNext}
+              disabled={activeIndex === sections.length - 1}
+              className="h-8 w-8"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+
+            <div className="ml-1">
+              <ThemeToggle />
+            </div>
+
+            {/* Close Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(false)}
+              className="h-8 w-8"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
 }
