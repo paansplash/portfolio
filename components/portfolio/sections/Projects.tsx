@@ -1,26 +1,40 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Github, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export default function Projects() {
   return (
     <div className="min-w-full h-full flex items-center justify-center px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground">A showcase of my recent work and personal projects</p>
+          <h2 className="scroll-m-20 text-2xl sm:text-3xl font-semibold tracking-tight mb-2 sm:mb-4">
+            Featured Projects
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            A showcase of my recent work and personal projects
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[70vh] overflow-y-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[70vh] overflow-y-auto">
+          {/* Project 1 */}
           <Card className="group hover:shadow-lg transition-all duration-300">
-            <div className="aspect-video relative overflow-hidden rounded-t-lg">
+            {/* Hide preview on mobile */}
+            <div className="hidden sm:block aspect-video relative overflow-hidden rounded-t-lg">
               <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span className="text-white font-semibold">E-commerce Platform</span>
+                <span className="text-white font-semibold">
+                  E-commerce Platform
+                </span>
               </div>
             </div>
             <CardHeader className="pb-2">
@@ -63,8 +77,9 @@ export default function Projects() {
             </CardContent>
           </Card>
 
+          {/* Project 2 */}
           <Card className="group hover:shadow-lg transition-all duration-300">
-            <div className="aspect-video relative overflow-hidden rounded-t-lg">
+            <div className="hidden sm:block aspect-video relative overflow-hidden rounded-t-lg">
               <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-blue-500 flex items-center justify-center">
                 <span className="text-white font-semibold">Data Manager</span>
               </div>
@@ -106,30 +121,40 @@ export default function Projects() {
             </CardContent>
           </Card>
 
+          {/* Project 3 */}
           <Card className="group hover:shadow-lg transition-all duration-300">
-            <div className="aspect-video relative overflow-hidden rounded-t-lg">
+            <div className="hidden sm:block aspect-video relative overflow-hidden rounded-t-lg">
               <div className="w-full h-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                <span className="text-white font-semibold">Weather App</span>
+                <span className="text-white font-semibold">Insurance</span>
               </div>
             </div>
             <CardHeader className="pb-2">
               <CardTitle className="group-hover:text-primary transition-colors text-lg">
-                Weather Dashboard
+                Payungku
               </CardTitle>
               <CardDescription className="text-sm">
-                Beautiful weather app with location-based forecasts
+                A website for medical practitioners to buy medical indemnities.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-1 mb-3">
                 <Badge variant="outline" className="text-xs">
-                  Vue.js
+                  HTML
                 </Badge>
                 <Badge variant="outline" className="text-xs">
-                  PWA
+                  CSS
                 </Badge>
                 <Badge variant="outline" className="text-xs">
-                  API
+                  BS5
+                </Badge>
+                <Badge variant="outline" className="text-xs">
+                  Laravel
+                </Badge>
+                <Badge variant="outline" className="text-xs">
+                  PHP
+                </Badge>
+                <Badge variant="outline" className="text-xs">
+                  BillPlz
                 </Badge>
               </div>
               <div className="flex gap-2">
@@ -151,5 +176,5 @@ export default function Projects() {
         </div>
       </div>
     </div>
-  )
+  );
 }
