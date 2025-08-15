@@ -131,7 +131,7 @@ export default function Portfolio() {
       />
 
       {/* Keyboard Instructions */}
-      <div className="fixed bottom-4 right-4 text-xs text-muted-foreground bg-background/80 backdrop-blur-sm border rounded px-2 py-1">
+      <div className="hidden md:fixed md:bottom-4 md:right-4 md:text-xs md:text-muted-foreground md:bg-background/80 md:backdrop-blur-sm md:border md:rounded md:px-2 md:py-1">
         Use ← → keys or mouse wheel to navigate
       </div>
     </div>
