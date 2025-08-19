@@ -96,9 +96,9 @@ export default function Navigations({
       </div>
 
       {/* Mobile: Burger + Floating Dock */}
-      <div className="md:hidden fixed bottom-8 right-4 z-50">
+      <div className="md:hidden fixed bottom-8 left-4 z-50">
         {!isOpen ? (
-          // Burger Button
+          // Burger Button (bottom-left)
           <Button
             variant="default"
             size="icon"
@@ -108,8 +108,8 @@ export default function Navigations({
             <Menu className="h-5 w-5" />
           </Button>
         ) : (
-          // Floating Dock
-          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-1 bg-background/95 backdrop-blur-sm border rounded-full px-3 py-2 shadow-xl">
+          // Floating Dock (left side, vertical)
+          <div className="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col items-center space-y-2 bg-background/95 backdrop-blur-sm border rounded-2xl px-2 py-3 shadow-xl">
             <Button
               variant="ghost"
               size="icon"
@@ -117,35 +117,34 @@ export default function Navigations({
               disabled={activeIndex === 0}
               className="h-8 w-8"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-4 w-4 rotate-90" />
+              {/* Rotate so it looks like "up" */}
             </Button>
 
-            <div className="flex items-center space-x-1">
-              {sections.map((section, index) => {
-                const IconComponent = section.icon;
-                const isActive = activeIndex === index;
-                return (
-                  <button
-                    key={section.id}
-                    onClick={() => handleSectionClick(index)}
-                    className={`group relative flex items-center justify-center rounded-full p-2 transition-all duration-300 hover:bg-primary/10 ${
+            {sections.map((section, index) => {
+              const IconComponent = section.icon;
+              const isActive = activeIndex === index;
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => handleSectionClick(index)}
+                  className={`group relative flex items-center justify-center rounded-full p-2 transition-all duration-300 hover:bg-primary/10 ${
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  title={section.label}
+                >
+                  <IconComponent
+                    className={`transition-all duration-300 ${
                       isActive
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:text-foreground"
+                        ? "h-5 w-5 scale-110"
+                        : "h-5 w-5 group-hover:scale-105"
                     }`}
-                    title={section.label}
-                  >
-                    <IconComponent
-                      className={`transition-all duration-300 ${
-                        isActive
-                          ? "h-5 w-5 scale-110"
-                          : "h-5 w-5 group-hover:scale-105"
-                      }`}
-                    />
-                  </button>
-                );
-              })}
-            </div>
+                  />
+                </button>
+              );
+            })}
 
             <Button
               variant="ghost"
@@ -154,10 +153,11 @@ export default function Navigations({
               disabled={activeIndex === sections.length - 1}
               className="h-8 w-8"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4 -rotate-90" />
+              {/* Rotate so it looks like "down" */}
             </Button>
 
-            <div className="ml-1">
+            <div className="mt-2">
               <ThemeToggle />
             </div>
 

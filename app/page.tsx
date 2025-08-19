@@ -1,13 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Home,
-  User,
-  Wrench,
-  FolderOpen,
-  Phone,
-} from "lucide-react";
+import { Home, User, Wrench, FolderOpen, Phone } from "lucide-react";
 
 import Hero from "@/components/portfolio/sections/Hero";
 import About from "@/components/portfolio/sections/About";
@@ -15,6 +9,7 @@ import Skills from "@/components/portfolio/sections/Skills";
 import Projects from "@/components/portfolio/sections/Projects";
 import Contact from "@/components/portfolio/sections/Contact";
 import Navigations from "@/components/portfolio/components/Navigations";
+import Chatbox from "@/components/portfolio/components/Chatbox";
 
 const sections = [
   { id: "hero", icon: Home, label: "Home" },
@@ -75,7 +70,8 @@ export default function Portfolio() {
 
     const handleSwipe = () => {
       const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 50) { // Minimum swipe distance
+      if (Math.abs(swipeDistance) > 50) {
+        // Minimum swipe distance
         if (swipeDistance > 0) prevSlide(); // Swipe right
         else nextSlide(); // Swipe left
       }
@@ -130,6 +126,9 @@ export default function Portfolio() {
       <div className="hidden md:fixed md:bottom-4 md:right-4 md:text-xs md:text-muted-foreground md:bg-background/80 md:backdrop-blur-sm md:border md:rounded md:px-2 md:py-1">
         Use ← → keys, mouse wheel, or swipe to navigate
       </div>
+      
+      {/* Floating Chat */}
+      <Chatbox />
     </div>
   );
 }
