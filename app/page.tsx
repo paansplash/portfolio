@@ -15,7 +15,7 @@ const sections = [
   { id: "hero", icon: Home, label: "Home" },
   { id: "about", icon: User, label: "About" },
   { id: "skills", icon: Wrench, label: "Skills" },
-  { id: "projects", icon: FolderOpen, label: "Projects" },
+  // { id: "projects", icon: FolderOpen, label: "Projects" },
   { id: "contact", icon: Phone, label: "Contact" },
 ];
 
@@ -108,7 +108,7 @@ export default function Portfolio() {
           <Skills />
 
           {/* Projects Slide */}
-          <Projects />
+          {/* <Projects /> */}
 
           {/* Contact Slide */}
           <Contact />
