@@ -6,7 +6,7 @@ import { Home, User, Wrench, FolderOpen, Phone } from "lucide-react";
 import Hero from "@/components/portfolio/sections/Hero";
 import About from "@/components/portfolio/sections/About";
 import Skills from "@/components/portfolio/sections/Skills";
-import Projects from "@/components/portfolio/sections/Projects";
+// import Projects from "@/components/portfolio/sections/Projects";
 import Contact from "@/components/portfolio/sections/Contact";
 import Navigations from "@/components/portfolio/components/Navigations";
 import Chatbox from "@/components/portfolio/components/Chatbox";
