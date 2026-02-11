@@ -5,7 +5,9 @@ import { MessageCircle, X, Send } from "lucide-react";
 
 export default function Chatbox() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<{ role: "user" | "bot"; content: string }[]>([]);
+  const [messages, setMessages] = useState<
+    { role: "user" | "bot"; content: string }[]
+  >([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -50,7 +52,11 @@ export default function Chatbox() {
 
       {/* Chat Modal */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 z-50 w-80 sm:w-96 h-[450px] bg-background border rounded-2xl shadow-xl flex flex-col">
+        <div
+          className="fixed bottom-20 right-4 z-50 w-80 sm:w-96 h-[450px] 
+    bg-background/80 backdrop-blur-md border rounded-2xl shadow-xl 
+    flex flex-col transition-opacity duration-300 hover:opacity-100 opacity-80"
+        >
           {/* Header */}
           <div className="flex justify-between items-center p-3 border-b">
             <h2 className="font-semibold">AI Assistant</h2>
